@@ -5,6 +5,7 @@ let input = document.getElementById("input");
 let win = document.getElementById("ganaste")
 let loose = document.getElementById("perdiste")
 let numeroes = document.getElementById("numeroes")
+let intentosRestantes = document.getElementById("intentosRestantes")
 boton.addEventListener("click", adivinar);
 let intentos = 7;
 const numeroSecreto = Math.floor(Math.random() * 77) + 1;
@@ -14,6 +15,8 @@ win.style.display = "none";
 loose.style.display = "none";
 numMay.style.display = "none";
 numMen.style.display = "none";
+
+intentosRestantes.innerText = "Intentos restantes: " + intentos;
 
 function adivinar() {
     if (parseInt(input.value) === numeroSecreto) {
@@ -45,6 +48,7 @@ function adivinar() {
 
 function actualizarIntentos() {
     intentos--;
+    intentosRestantes.innerText = "Intentos restantes: " + intentos;
 
     if (intentos === 0) {
         console.log("¡Lo siento! Has agotado tus 7 intentos. El número secreto era " + numeroSecreto);
